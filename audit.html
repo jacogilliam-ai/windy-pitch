@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Full audit, Windy Weatherfoot</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jacogilliam-ai.github.io/windy-pitch/audit.html" />
+  <meta property="og:title" content="Full audit, Windy Weatherfoot" />
+  <meta property="og:description" content="What jumped out across every page. Prepared for Ryan Black." />
+  <meta property="og:image" content="https://jacogilliam-ai.github.io/windy-pitch/images/hero-cottage-moon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=35" />
+</head>
+<body>
+
+  <main id="site" class="site">
+
+    <!-- NAV -->
+    <nav class="nav">
+      <img src="images/logo.webp" alt="Windy Weatherfoot" class="nav-logo" />
+      <div class="nav-links">
+        <a href="index.html">← Back to the main page</a>
+      </div>
+    </nav>
+
+    <!-- HERO (compressed) -->
+    <section class="section section-forest" style="padding-top: 120px;">
+      <div class="container container-narrow center-head">
+        <p class="eyebrow eyebrow-light">Full audit</p>
+        <h1 class="display-1 display-light">What jumped out across every page.</h1>
+        <p class="body-lg body-light">Everything else I found, cataloged by page. Snapshot in time as of the audit date.</p>
+      </div>
+    </section>
+
+    <!-- 1. CRITICAL FIXES -->
+    <section class="section section-cream">
+      <div class="container center-head">
+        <p class="eyebrow">01 / Critical</p>
+        <h2 class="display-1">Things shipped broken to production.</h2>
+        <p class="lead">Nine items. High visibility, high urgency, most of them a same-day fix.</p>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>Homepage hero CTA "Download the Pledge PDF" links to /collections/all.</h3>
+            <p>Not a PDF, not gated, not the pledge product page. Same visual weight as "Play Now" and "Shop Now." Highest-traffic dead-end on the site.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>"Lyrics PDF" filename is literally pdf-sample_0.pdf.</h3>
+            <p>The download served from your homepage is a Shopify placeholder file. When opened, it says "Dummy PDF file." Real Pack Song lyrics never got uploaded to replace it.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>Accessibility page ships with a placeholder phone number.</h3>
+            <p>The Feedback section on /pages/accessibility lists Phone: +1 555.555.5555. That's the placeholder shipped by the W3C Accessibility Statement Generator Tool. Never got replaced.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">04</p>
+          <div class="audit-body">
+            <h3>Two different corporate addresses across policy pages.</h3>
+            <p>Accessibility page lists 2684 Lacy St, #209, Los Angeles, CA 90031. Contact-information policy and refund policy list a Mt. Pleasant, SC address. Site advertises two different corporate headquarters.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">05</p>
+          <div class="audit-body">
+            <h3>Two different phone numbers.</h3>
+            <p>626-268-5688 in contact-information policy vs. 555-555-5555 placeholder on accessibility. LA area code matches the LA address, but the mismatch itself is what a diligent buyer notices.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">06</p>
+          <div class="audit-body">
+            <h3>COPPA page is empty AND misspelled "COPA" in the footer.</h3>
+            <p>Footer link labeled "COPA" (missing a P). The page it links to (/pages/copa) has only the heading "COPA" and no policy content. For a kids-first brand where COPPA is the load-bearing compliance regulation, this is exposure.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">07</p>
+          <div class="audit-body">
+            <h3>Privacy policy says "not intended for children."</h3>
+            <p>Direct quote from your privacy policy: "The Services are not intended to be used by children." Meanwhile the entire brand is kids' toothpaste, kids' apparel, a kids' Roblox game, and a kids' TV show. The two documents actively contradict.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">08</p>
+          <div class="audit-body">
+            <h3>Terms of Service ships with Shopify's internal template note visible.</h3>
+            <p>The Terms of Service still contains the line "[NOTE TO MERCHANT: This section accurately characterizes Shopify's relationship..." That's Shopify's guidance to the store owner. It shouldn't be visible to customers reading the legal document.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">09</p>
+          <div class="audit-body">
+            <h3>Footer "Shipping & Returns" link 404s.</h3>
+            <p>Footer routes visitors to /pages/shipping-returns, which doesn't exist. For logged-in users it silently redirects to the refund policy, which is a related but not identical document.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2. CHARACTER DISCOVERY -->
+    <section class="section section-cream-2">
+      <div class="container center-head">
+        <p class="eyebrow">02 / Character discovery</p>
+        <h2 class="display-1">The single biggest SEO wedge, sitting unclaimed.</h2>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>/pages/characters is one carousel URL for all seven characters.</h3>
+            <p>Not seven separate pages. One URL trying to rank for seven different character search intents. "Who is Windy Weatherfoot," "Chip chippopotamus," "meet Walker." Google can't distinguish which content answers which query.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>All seven "Shop [Name]'s Items" buttons dead-end.</h3>
+            <p>Every character slide has a green button that reloads the same character page. Meanwhile the character-specific collections do exist at /collections/windy, /collections/walker, /collections/carrot, /collections/chip, /collections/chit-chat, /collections/good-eye-deer, /collections/lief. Populated with real products. Nothing routes users to them.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>Zero character schema.</h3>
+            <p>No FictionalCharacter or Person JSON-LD anywhere. Google Knowledge Graph, ChatGPT, and Perplexity have no structured hook for any character. Every character search is a missed impression.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. POST-PURCHASE GAP -->
+    <section class="section section-cream">
+      <div class="container center-head">
+        <p class="eyebrow">03 / Post-purchase</p>
+        <h2 class="display-1">The brand vanishes at the highest-trust moment.</h2>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>Account/Profile page is vanilla Shopify default.</h3>
+            <p>Once a customer logs in, they see plain Shopify Sans styling with no Weatherfoot header, no logo, no color palette, no character presence. It looks like a different company owns the account experience.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>Orders page is bare-bones.</h3>
+            <p>"Welcome / Ready to shop?" with a blue Shopify button. No brand elements, no order tracking beyond default, no post-purchase content, no "what's next" moment.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>Post-purchase is your highest-emotion moment.</h3>
+            <p>A parent just bought your kids' toothpaste or apparel. They're actively looking for brand reinforcement. What they get is a Shopify default screen that could belong to any DTC brand. Lost lifetime value, every time.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. EMAIL FLOWS (LIVE-TESTED) -->
+    <section class="section section-cream-2">
+      <div class="container center-head">
+        <p class="eyebrow">04 / Email flows (live-tested)</p>
+        <h2 class="display-1">The list is capturing, and nothing is firing.</h2>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>I signed up. Five hours later, zero email.</h3>
+            <p>Subscribed to the homepage list to test the flow. No welcome sequence, no product tease, no follow-up. The only email that came through was Shopify's built-in login code, which is transactional and unrelated to marketing.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>Two email capture forms on the homepage, neither wired.</h3>
+            <p>"Never Miss A Windy Moment" and "Get The Weather Report" are both on the homepage with near-identical copy. Neither triggers a sequence. And having two forms with different names on one page adds friction for no strategic reason.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>Every activity PDF is a free giveaway with no email.</h3>
+            <p>Weatherfoot Pledge, Pack Song Sing-A-Long, Bonjour For Sure coloring page, So Epic!, Butterfly Maze, Word Search. Six PDFs, zero email captures. Gate them, same file, and the list starts building tomorrow.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">04</p>
+          <div class="audit-body">
+            <h3>No post-purchase flow either.</h3>
+            <p>A customer buys a plush or a tee, gets the Shopify default confirmation, then silence. No care tips, no matching-product suggestion, no "come back" trigger. Every customer becomes a one-time customer by default.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. PRODUCT PAGES -->
+    <section class="section section-cream">
+      <div class="container center-head">
+        <p class="eyebrow">05 / Product pages</p>
+        <h2 class="display-1">Product pages missing what buyers need.</h2>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>Kids' toothpaste has no ingredients, allergens, size, or age guidance.</h3>
+            <p>This is a consumable oral-care product for kids 2+. No ingredient list, no allergen callouts, no ADA/CFK explainer, no size (oz), no swallowing safety guidance. For a kids' CPG product, these are table stakes.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>$30 Bearthday Play Box has no age range, no component breakdown, no bulk pricing.</h3>
+            <p>Your highest-price SKU, aimed at parents planning parties. No visual breakdown of the 10-piece kit, no "for how old," no bulk/classroom pricing. A parent planning an Earth Day event can't picture value.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>Zero reviews on any product.</h3>
+            <p>Seven products, zero social proof. For a new kids' brand, one review at the top of a product page is worth more than three paragraphs of copy.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">04</p>
+          <div class="audit-body">
+            <h3>Zero Product JSON-LD anywhere.</h3>
+            <p>No product schema means no Google Shopping rich results, no LLM referral, no structured pricing/availability data crawlable.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">05</p>
+          <div class="audit-body">
+            <h3>Toddler tee URL exposes Bella+Canvas SKU.</h3>
+            <p>The URL /products/bonjour-3001t-toddler-jersey-tee shows Bella+Canvas item 3001T in the handle. Reads as unfinished at best, dropshipper at worst.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">06</p>
+          <div class="audit-body">
+            <h3>Three apparel SKUs use near-identical templated descriptions.</h3>
+            <p>Adult tee, toddler tee, and Besties youth tee all end with a variation of "school, work, or adventuring with your friends." Reads templated even to a casual visitor.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. BLOG -->
+    <section class="section section-cream-2">
+      <div class="container center-head">
+        <p class="eyebrow">06 / Blog</p>
+        <h2 class="display-1">Launched, then stalled.</h2>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>Three posts in 20 days, then nothing.</h3>
+            <p>Published Dec 9, 22, and 29 2025. Silence since. Reads as a launch push that didn't scale, which is the pattern parents notice when researching a new brand.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>Zero author bylines.</h3>
+            <p>For a kids' brand where parental E-E-A-T (Experience, Expertise, Authoritativeness, Trust) is the moat, having no named author on any post costs you both Google trust and reader trust.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>Every post embeds the same four products, regardless of topic.</h3>
+            <p>The monarch butterfly nature guide pushes an adult t-shirt. The morning routine post pushes the same. Reads as automated, not curated.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">04</p>
+          <div class="audit-body">
+            <h3>Zero Article or BlogPosting schema.</h3>
+            <p>None of the three posts is discoverable via Google rich results or LLM answers. All that E-E-A-T work is invisible outside the site itself.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7. WATCH PAGE -->
+    <section class="section section-cream">
+      <div class="container center-head">
+        <p class="eyebrow">07 / Watch page</p>
+        <h2 class="display-1">The show is your thesis, and the page barely renders.</h2>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>Four YouTube embeds render as "Loading…" placeholders to crawlers.</h3>
+            <p>Whether it's lazy-load or JS hydration, one of your six navigation verbs ships in a degraded state to search engines and LLMs.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>Zero episode titles, count, or schedule as text on the page.</h3>
+            <p>All episode metadata is locked inside YouTube. No search engine can index "Windy Battles to Save a Giant Acorn" as your content. It reads as YouTube's content, not yours.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>No VideoObject or TVSeries schema despite the show being the entire thesis.</h3>
+            <p>An animated series has one of the richest schema surfaces available in JSON-LD. None of it is claimed. Structured hooks for "watch Windy Weatherfoot episodes" don't exist.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 8. EMPTY / ROGUE COLLECTIONS -->
+    <section class="section section-cream-2">
+      <div class="container center-head">
+        <p class="eyebrow">08 / Empty and rogue collections</p>
+        <h2 class="display-1">Collections that shouldn't be public.</h2>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>/collections/sweatshirts is empty.</h3>
+            <p>Public, indexable, "No products found." Reads as under construction to any visitor who lands there.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>/collections/new-arrivals is empty.</h3>
+            <p>Same story. A "New Arrivals" collection with no products reads as "we've stopped adding things."</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>/collections/home-page is a Shopify legacy default exposed to the public.</h3>
+            <p>This is Shopify's default fallback collection. Not meant to be user-facing. Currently reachable.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 9. SMALL BUT PRESENT -->
+    <section class="section section-cream">
+      <div class="container center-head">
+        <p class="eyebrow">09 / Small but present</p>
+        <h2 class="display-1">Details that pile up.</h2>
+      </div>
+      <div class="audit-list">
+        <article class="audit-item">
+          <p class="audit-num">01</p>
+          <div class="audit-body">
+            <h3>"Generation Preservation™" appears three times without definition.</h3>
+            <p>Homepage, Shop All, and About all invoke Generation Preservation™. No one page defines what it means. Trademarked language should either land as a proper name (with capitalized identity) or a clear explainer, not both nowhere.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">02</p>
+          <div class="audit-body">
+            <h3>FAQ contradicts the Refund Policy on returns.</h3>
+            <p>FAQ says "let us know and we'll do our best to work with you." Refund policy states a firm 30-day window. Two sources of truth for the customer question that matters most.</p>
+          </div>
+        </article>
+        <article class="audit-item">
+          <p class="audit-num">03</p>
+          <div class="audit-body">
+            <h3>agents.md is present and modern (a positive).</h3>
+            <p>Not everything on the site is a gap. The site publishes an agents.md file, which signals someone on the team is already thinking about AI accessibility. Worth noting so no one thinks I missed the good instincts.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CLOSE -->
+    <section class="section section-forest section-final">
+      <div class="container container-narrow center-head">
+        <p class="eyebrow eyebrow-light">Close</p>
+        <h2 class="display-1 display-light">Happy to walk through any of it.</h2>
+        <p class="body-lg body-light">Every finding above is snapshot in time as of the audit date. Fixes are in the <a href="index.html#plan" style="color: var(--accent-gold); text-decoration: underline;">Phase 1 plan</a>. Everything else, we talk through when we meet.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Prepared privately for Ryan Black.</p>
+      <p>Full audit companion to <a href="index.html">Windy Weatherfoot, expanded</a>. By Jacob Gilliam. July 2026.</p>
+      <p class="footer-fine">All show imagery is © Windy Weatherfoot, used here for private discussion only.</p>
+    </footer>
+
+  </main>
+
+  <script src="main.js?v=35"></script>
+</body>
+</html>

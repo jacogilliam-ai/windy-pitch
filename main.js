@@ -1,19 +1,16 @@
 /* ------------------------------------------------------------
    Windy Weatherfoot pitch — client script
-   Password gate + subtle scroll polish.
+   Intro splash + scroll reveals.
    ------------------------------------------------------------ */
 
 (function () {
-  const PASSWORD = 'sunpike';
-  const STORAGE_KEY = 'ww-pitch-unlocked';
+  const STORAGE_KEY = 'ww-pitch-entered';
 
   const gate = document.getElementById('gate');
   const site = document.getElementById('site');
-  const form = document.getElementById('gate-form');
-  const input = document.getElementById('gate-input');
-  const err = document.getElementById('gate-error');
+  const enterBtn = document.getElementById('gate-enter');
 
-  function unlock() {
+  function enter() {
     gate.classList.add('hidden');
     site.classList.remove('hidden');
     site.setAttribute('aria-hidden', 'false');
@@ -22,41 +19,40 @@
   }
 
   if (sessionStorage.getItem(STORAGE_KEY) === '1') {
-    unlock();
-  } else {
-    setTimeout(() => input && input.focus(), 200);
+    enter();
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const val = (input.value || '').trim().toLowerCase();
-    if (val === PASSWORD) {
-      err.textContent = '';
-      unlock();
-    } else {
-      err.textContent = 'Not quite. Try again.';
-      input.value = '';
-      input.focus();
-    }
-  });
+  if (enterBtn) enterBtn.addEventListener('click', enter);
 
-  // Subtle reveal on scroll for section content
-  const revealTargets = document.querySelectorAll('.section .display-1, .section .body-lg, .cast-card, .gap-item, .move, .horizon-year, .figure-full, .figure-full-cream');
-  if ('IntersectionObserver' in window) {
+  // Staggered reveal on scroll
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Note: .fw-node is intentionally excluded — it uses transform for radial
+  // positioning, which an inline reveal transform would clobber.
+  const revealTargets = document.querySelectorAll(
+    '.section .eyebrow, .section .display-1, .section .lead, .section .body-lg, ' +
+    '.cast-card, .prod-feature, .prod-card, .prod-tile, .fw-engine, ' +
+    '.split-media, .prod-note, .ask-proof'
+  );
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
     revealTargets.forEach(el => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1)';
+      el.style.transform = 'translateY(22px)';
+      el.style.transition = 'opacity 0.85s var(--ease, cubic-bezier(0.4,0,0.2,1)), transform 0.85s var(--ease, cubic-bezier(0.4,0,0.2,1))';
     });
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          io.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        // stagger siblings within the same reveal group
+        const siblings = Array.from(el.parentElement ? el.parentElement.children : [el]);
+        const idx = Math.max(0, siblings.indexOf(el));
+        el.style.transitionDelay = Math.min(idx * 80, 320) + 'ms';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        io.unobserve(el);
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
     revealTargets.forEach(el => io.observe(el));
   }
 })();
