@@ -602,6 +602,61 @@ button { font-family: inherit; }
   text-underline-offset: 3px;
   font-weight: 600;
 }
+.ask-offer {
+  margin: 40px 0 32px;
+  padding: 32px;
+  background: rgba(21, 105, 60, 0.08);
+  border-left: 4px solid var(--green);
+  border-radius: 6px;
+}
+.ask-offer-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0 0 12px;
+}
+.ask-offer-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+.ask-offer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ask-offer-list li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  padding: 6px 0 6px 22px;
+  position: relative;
+}
+.ask-offer-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+@media (max-width: 640px) {
+  .ask-offer {
+    padding: 24px;
+    margin: 32px 0 28px;
+  }
+  .ask-offer-price {
+    font-size: 24px;
+  }
+}
 .ask-close {
   margin-top: 44px;
   padding-top: 32px;
