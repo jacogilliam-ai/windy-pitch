@@ -615,6 +615,33 @@ button { font-family: inherit; }
   color: var(--green);
   margin: 0;
 }
+.ask-contact {
+  margin: 20px 0 0;
+  font-size: 16px;
+  color: var(--ink-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: baseline;
+}
+.ask-contact a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+.ask-contact a:hover {
+  color: var(--green);
+}
+.ask-contact-sep {
+  color: var(--ink-muted);
+  opacity: 0.5;
+}
+@media (max-width: 480px) {
+  .ask-contact-sep { display: none; }
+  .ask-contact { flex-direction: column; gap: 6px; }
+}
 .ask-proof {
   margin: 40px 0;
   max-width: 340px;
